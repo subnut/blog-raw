@@ -1,0 +1,34 @@
+De-googlify using open-source apps
+26/3/2021
+26/03/2021
+---
+I use Android One phones due to their longer Android support. But they
+use Google Apps for all key functionalities. This blog lists some
+alternatives.
+---
+	[1]: https://github.com/kitsunyan/foxy-droid
+	[2]: https://www.simplemobiletools.com
+	[3]: https://github.com/dslul/openboard
+	[4]: https://github.com/OpenLauncherTeam/openlauncher
+	[5]: https://github.com/TeamNewPipe/NewPipe
+	[6]: https://github.com/jimmod/ShareToComputer
+
+<ul>
+- !(1)[Foxy Droid] (F-droid client)
+- !(2)[Simple Apps]
+  <ul>
+  - Clock
+  - Phone
+  - SMS
+  - Gallery
+  - File Manager
+  - Music Player
+  - etc.
+  </ul>
+- !(3)[OpenBoard]
+- !(4)[OpenLauncher]
+- !(5)[NewPipe]
+- !(6)[Share to Computer]
+</ul>
+---
+

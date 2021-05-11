@@ -1,0 +1,204 @@
+My blog syntax
+10/04/2021
+14/04/2021
+---
+I wanted to write my own parser for my blog, but I realized that Markdown is
+too complicated. This blog discusses the syntax I ended up using to write my
+blog posts.
+---
+# Let's talk about markdown
+Specifically, how to parse Markdown _without_ using <abbr title="regular expressions">
+regex</abbr>.  
+Ever tried that?  
+  
+	[1]: https://github.com/songquanpeng/md2html
+
+I don't think that a proper Markdown-to-HTML converter exists that doesn't use
+any regex at all. I searched a bit, and the only result I could find was
+!(1)[this]. A program written in Go, which is a language that I know nothing
+about.  
+  
+Let me put down my requirements first. I want a program that -
+<ul>
+- Is open-source
+- Is simple and light-weight
+- *Does not use regex*
+- Reads plaintext (from file or stdout)
+- Spits out HTML
+</ul>
+Also, the format that I shall write the plaintext must be -
+<ul>
+- Readable  
+By 'readable' I mean that the raw, plaintext file should be easily readable and
+understandable. That is, the formatting itself must not hinder while reading
+the raw file.
+- Familiar  
+- Simple
+- Concise
+- *Does not need regex*
+</ul>
+  
+  
+So, that puts Markdown out of the question, as it absolutely requires regex.  
+
+Also, pure HTML is too verbose. While reading a plaintext file, two[^1] or
+four[^2] extra characters are OK. But seventeen[^3]? Not OK.  
+
+
+<details>
+<summary>Click here to show some examples of my syntax</summary>
+## Features currently implemented -
+
+	[1]:	#Code-blocks
+	[2]:	#Inline-code
+	[3]:	#Bold-italic
+	[4]:	#Lists
+	[5]:	#Tables
+	[6]:	#Headings
+	[40]:	#Links
+
+<ul>
+- !(1)class="self-link"[Code blocks] (`<pre>`)
+- !(2)class="self-link"[Inline code] (`<code>`)
+- !(3)class="self-link"[Bold, Italic]
+- !(4)class="self-link"[Lists]
+- !(5)class="self-link"[Tables]
+- !(6)class="self-link"[Headings]
+- !(40)class="self-link"[Links]
+</ul>
+
+
+### Code blocks
+```
+\```
+Code block
+\```
+```
+### Inline code
+This is `\`Inline Code\``
+
+### Bold, italic
+This is *bold* (`*bold*`) and this is _italic_ (`_italic_`)
+<ul>
+- _*Bolditalic*_ (`_*Bolditalic*_`)
+- _*Bolditalic_* (`_*Bolditalic_*`)
+- *_Bolditalic_* (`*_Bolditalic_*`)
+- *_Bolditalic*_ (`*_Bolditalic*_`)
+</ul>
+
+### Lists
+```
+<ul>
+- list item
+- list item
+- list item
+  <ul>
+  - nested list item
+  - nested list item
+  - nested list item
+    <ol>
+    - nested<sup>2</sup> list item
+    - nested<sup>2</sup> list item
+    </ol>
+  </ul>
+- list item
+- list item
+</ul>
+```
+<ul>
+- list item
+- list item
+- list item
+  <ul>
+  - nested list item
+  - nested list item
+  - nested list item
+    <ol>
+    - nested<sup>2</sup> list item
+    - nested<sup>2</sup> list item
+    </ol>
+  </ul>
+- list item
+- list item
+</ul>
+
+### Tables
+```
+<table id="example" class="example">
+item | item
+item|  item
+item  |item
+</table>
+```
+<table id="example" class="example">
+item | item
+item|  item
+item  |item
+</table>
+```
+<table id="insanity">
+item  | item | item
+item  | item
+item  | item
+item \| item | item
+item \| item \| item
+item| item|item    |item\|item
+item       |  item|             item    |item\|item
+</table>
+```
+<table id="example">
+item  | item | item
+item  | item
+item  | item
+item \| item | item
+item \| item \| item
+item| item|item    |item\|item
+item       |  item|                  item    |item\|item
+</table>
+  
+### Headings
+```
+<h1> Heading 1 </h1>
+<h2> Heading 2 </h2>
+##    Heading 2
+### Heading 3
+#### Heading 4
+#####   Heading 5
+```
+<h1> Heading 1 </h1>
+<h2> Heading 2 </h2>
+##    Heading 2
+### Heading 3
+#### Heading 4
+#####   Heading 5
+  
+### Links
+```
+	[1]: http://localhost
+	[2]:https://localhost
+	[3]:        localhost
+
+!(1)[Link]  
+!(2) [Link]  
+!(3)title="Hover over the link to see this text"[Link]  
+```
+	[1]: http://localhost
+	[2]:https://localhost
+	[3]:        localhost
+
+!(1)[Link]  
+!(2) [Link]  
+!(3)title="Hover over the link to see this text"[Link]  
+  
+### HTML Tags
+```
+This is <u>\<u>underlined\</u></u> text
+```
+This is <u>\<u>underlined\</u></u> text
+</details>
+
+===
+1: `*bold*`, as in WhatsApp
+2: `**bold**` or `__bold__`, used in Markdown
+3: `<strong>bold</strong>`, as in <abbr title="HyperText Markup Lanugage">HTML</abbr>
+---

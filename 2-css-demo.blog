@@ -1,0 +1,59 @@
+CSS demonstration
+6/05/2020
+06/5/2020
+---
+A simple blog post to demonstrate the CSS used for this website<br>
+<br>
+This is the subtitle
+---
+*bold* _italic_ *_bolditalic_* `code` <u>underlined</u> <a href="#!">Link</a>  
+
+# Heading 2
+## Heading 3
+### Heading 4
+
+```
+#include <stdio.h>
+
+int
+main(void)
+{
+	printf("This is a codeblock\nIs this line long enough for the scrollbar to appear?")
+}
+```
+
+<blockquote>
+This is a blockquote.
+Probably something that I liked.
+</blockquote>
+
+<ol>
+- Ordered
+- List
+- Containing
+- A
+- Nested
+  <ul>
+  - Unordered
+  - List
+  </ul>
+- List
+</ol>
+
+<table>
+This|is
+a|table
+</table>
+
+<table>
+And this is
+a|very
+very|ugly|table
+</table>
+
+Try selecting this text.  
+
+<a href="#a-self-link" id="a-self-link" class="self-link" title="Good. Now try clicking it">
+Try hovering over this link
+</a>
+---
