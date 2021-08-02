@@ -11,13 +11,13 @@ Specifically, how to parse Markdown _without_ using <abbr title="regular express
 regex</abbr>.  
 Ever tried that?  
   
-	[1]: https://github.com/songquanpeng/md2html
-
 I don't think that a proper Markdown-to-HTML converter exists that doesn't use
 any regex at all. I searched a bit, and the only result I could find was
 !(1)[this]. A program written in Go, which is a language that I know nothing
 about.  
   
+	[1]: https://github.com/songquanpeng/md2html
+
 Let me put down my requirements first. I want a program that -
 <ul>
 - Is open-source
@@ -32,7 +32,7 @@ Also, the format that I shall write the plaintext must be -
 By 'readable' I mean that the raw, plaintext file should be easily readable and
 understandable. That is, the formatting itself must not hinder while reading
 the raw file.
-- Familiar  
+- Familiar
 - Simple
 - Concise
 - *Does not need regex*
@@ -49,14 +49,6 @@ four[^2] extra characters are OK. But seventeen[^3]? Not OK.
 <summary>Click here to show some examples of my syntax</summary>
 ## Features currently implemented -
 
-	[1]:	#Code-blocks
-	[2]:	#Inline-code
-	[3]:	#Bold-italic
-	[4]:	#Lists
-	[5]:	#Tables
-	[6]:	#Headings
-	[40]:	#Links
-
 <ul>
 - !(1)class="self-link"[Code blocks] (`<pre>`)
 - !(2)class="self-link"[Inline code] (`<code>`)
@@ -66,6 +58,14 @@ four[^2] extra characters are OK. But seventeen[^3]? Not OK.
 - !(6)class="self-link"[Headings]
 - !(40)class="self-link"[Links]
 </ul>
+
+	[1]:	#Code-blocks
+	[2]:	#Inline-code
+	[3]:	#Bold-italic
+	[4]:	#Lists
+	[5]:	#Tables
+	[6]:	#Headings
+	[40]:	#Links
 
 
 ### Code blocks
@@ -174,22 +174,22 @@ item       |  item|                  item    |item\|item
   
 ### Links
 ```
-	[1]: http://localhost
-	[2]:https://localhost
-	[3]:        localhost
-
 !(1)[Link]  
 !(2) [Link]  
 !(3)title="Hover over the link to see this text"[Link]  
+
+	[1]: http://localhost
+	[2]:https://localhost
+	[3]:        localhost
 ```
+!(1)[Link]  
+!(2) [Link]  
+!(3)title="Hover over the link to see this text"[Link]  
+
 	[1]: http://localhost
 	[2]:https://localhost
 	[3]:        localhost
 
-!(1)[Link]  
-!(2) [Link]  
-!(3)title="Hover over the link to see this text"[Link]  
-  
 ### HTML Tags
 ```
 This is <u>\<u>underlined\</u></u> text
@@ -197,7 +197,7 @@ This is <u>\<u>underlined\</u></u> text
 This is <u>\<u>underlined\</u></u> text
 </details>
 
-===
+^^^
 1: `*bold*`, as in WhatsApp
 2: `**bold**` or `__bold__`, used in Markdown
 3: `<strong>bold</strong>`, as in <abbr title="HyperText Markup Lanugage">HTML</abbr>
