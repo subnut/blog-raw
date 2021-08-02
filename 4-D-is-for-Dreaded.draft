@@ -1,0 +1,16 @@
+D is for Dreaded
+Date created (DD/MM/YYYY)
+Last modified (DD/MM/YYYY)
+---
+Ever heard about the `D` process state in Linux? People say that the _D_ stands
+for _Disk sleep_, but I personally believe it means _dreaded_. You can't even
+`kill -9` it!
+---
+Blog
+Text
+---
+Don't forget to mention the fact that you can check the kernel call that the
+process is hanging on using the `wchan` field of `ps`
+```
+ps axopid,comm,wchan
+```
